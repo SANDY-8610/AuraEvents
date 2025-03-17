@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>User Dashboard</title>
+            <link rel="stylesheet" href="static/admin.css">
+    </head>
+    <body><h3>
+        
+    <header>
+        <div class="header-content">
+        <h1>Event Listing</h1>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('view_tickets')}}">View Tickets</a></li>
+                <li><a href="{{url_for('Home')}}">Logout</a></li>
+    
+            </ul>
+        </nav>
+    </div>
+    </header>
+        
+    <main>
+        <div class="hero-image">
+            <img src="static/images/event.webp" alt="Event Management Hero" />
+        </div>
+        <div class="container">
+            <h2>Upcoming and Past Events</h2>
+                <div class="event-list">
+                    <table class="event-card">
+                        <tr>
+                            <th>ID</th>
+                            <th>EVENT NAME</th>
+                            <th>DESCRIPTION</th>
+                            <th>START DATE</th>
+                            <th>END DATE</th>
+                            <th>LOCATION</th>
+                            <th>ORGANIZER</th>                            
+                            <th>BOOKINGS</th>
+                        </tr>
+                    {% for data in datas %}
+                        <tr>
+                            <td>{{ data[0] }}</td>
+                            <td>{{ data[1] }}</td>
+                            <td>{{ data[2] }}</td>
+                            <td>{{ data[3] }}</td>
+                            <td>{{ data[4] }}</td>
+                            <td>{{ data[5] }}</td>
+                            <td>{{ data[7] }}</td>                            
+                            <td><div class="link-container"><a href="{{url_for('book_event', id=data[0])}}">BOOK EVENT</a></div></td>
+                        </tr>
+                            
+                    {% endfor %}
+                    </table>
+
+                </div>
+        </div>
+    </main>
+        
+        <footer>
+            <p>&copy;2025 AuraEvents</p>
+        </footer>
+      </h3>
+    </body>
+</html>

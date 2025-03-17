@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Positions content and navigation on opposite sides */
+    align-items: center; /* Aligns content vertically */
+    background-color: #404891; /* Black background */
+    color: white; /* White text */
+    padding-top: 2000px;
+    padding: 20px;
+}
+
+header .header-content {
+    flex: 1; /* Takes up remaining space */
+    text-align: left; /* Aligns the header content to the left */
+}
+
+header nav {
+    flex: 1; /* Takes up remaining space */
+    text-align: right; /* Aligns the navigation to the right */
+}
+
+header nav ul {
+    display: flex; /* Positions list items in a row */
+    list-style: none; /* Removes default list styling */
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end; /* Ensures navigation items stay on the right */
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white; /* White text for links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    pointer-events: auto;
+}
+
+header nav ul li a:hover {
+    color: #ff5722; /* Orange highlight on hover */
+}
+
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+  }
+  .hero-image {
+    z-index: -1; /* Ensure it stays behind other elements */
+}
+
+  
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0.3; 
+    filter: brightness(70%); 
+  }
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+.table-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust title spacing */
+.table-section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.event-card {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    text-align: center;
+    
+}
+
+.event-card td, .event-card th {
+    text-align: center;
+    padding: 8px;
+}
+
+.event-card td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 20px;
+}
+
+.event-card thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.event-card thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.event-card tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
+
+footer {
+    background-color: #404891;
+    color: white; 
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+form input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.button-class:hover {
+    background-color: #f3699e;
+}
+
+.button-class {
+    background-color: #404891;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+	</style>
+</head>
+
+<body>
+    <header>
+        <h1>  You can view the tickets here!</h1>
+        
+        <a id="download_pdf" href="{{ url_for('generate_ticket_pdf') }}" class="button-class">Download Ticket as PDF</a>
+        <a href="{{url_for('user_dashboard')}}" class="button-class">
+            Go Back
+        </a>
+        </header>
+        <div class="hero-image">
+            <img src="static/images/event.webp" alt="Event Management Hero" />
+        </div>
+    <form action="" method="POST">
+        <label for="mail"><h3>Enter Your Email:</h3></label>
+        <input type="email" id="mail" name="mail" required>
+        <button type="submit">Search</button>
+        
+    </form>
+    <script>
+        // Add JavaScript to dynamically update the PDF link with the email entered
+        const emailInput = document.getElementById('mail');
+        const pdfLink = document.getElementById('download_pdf');
+    
+        emailInput.addEventListener('input', () => {
+            const email = emailInput.value;
+            if (email) {
+                pdfLink.href = `/generate_ticket_pdf?mail=${encodeURIComponent(email)}`;
+            } else {
+                pdfLink.removeAttribute('href'); // Disable the link if email is empty
+            }
+        });
+    </script>
+
+   
+
+    {% if tickets %}
+    <div class="table-section">
+    <h2>Tickets Found:</h2>
+    <table class="event-card">
+        <thead>
+            <tr>
+                <th>Event ID</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket[1] }}</td>
+                <td>{{ ticket[5] }}</td>
+                <td>{{ ticket[4] }}</td>
+                <td>{{ ticket[3] }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert {{ message_type }}">
+    {{ message }}
+</div>
+{% endif %}
+   
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+</body>
+
+</html>

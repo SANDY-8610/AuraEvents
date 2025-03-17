@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Event</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    margin: 0;
+    margin-top: 120px;
+}
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.event-card {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    text-align: center;
+    
+}
+
+.event-card td, .event-card th {
+    text-align: center;
+    padding: 8px;
+}
+
+.event-card td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 20px;
+}
+
+.event-card thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.event-card thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.event-card tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
+
+
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    width: 100px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.button-class {
+    background-color: #333;
+    
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 400px;
+}
+
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <h1>Register for Event</h1>
+    </header>
+
+    <main>
+        <div class="registration-form">
+       
+            <form action="" method="POST">
+                <label for="attendee_name">Full Name</label>
+                <input type="text" id="attendee_name" name="attendee_name" required>
+
+                <label for="attendee_email">Email</label>
+                <input type="email" id="attendee_email" name="attendee_mail" required>
+
+                <label for="attendee_phone">Phone</label>
+                <input type="text" id="attendee_phone" name="attendee_phone">
+
+                <button type="submit">Register</button>
+                <a href="{{ url_for('user_dashboard') }}" class="button-class">
+                    Go Back
+                </a>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+
+</body>
+</html>

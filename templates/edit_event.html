@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+header {
+    background-color: #404891;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    margin: 0;
+    margin-top: 120px;
+}
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.event-card {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    text-align: center;
+    
+}
+
+.event-card td, .event-card th {
+    text-align: center;
+    padding: 8px;
+}
+
+.event-card td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 20px;
+}
+
+.event-card thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.event-card thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.event-card tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
+
+
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #404891;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.link-container {
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+.button-class {
+    background-color: #404891; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.button-class:hover {
+    background-color: #555; 
+}
+
+footer {
+    background-color: #404891;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 400px;
+}
+
+    </style>
+    <link rel="stylesheet" href="static/admin.css">
+</head>
+<body>
+
+    <header>
+        <h1>Admin - Edit Event</h1>
+        
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Edit and Update the Event</h2>
+            <form action="" method="POST">
+                <label for="name">Event Name</label>
+                <input type="text" id="name" name="name" value="{{datas[1]}}" required>
+
+                <label for="description">Event Description</label>
+                <textarea id="description" name="description" value="{{datas[2]}}"required></textarea>
+
+                <label for="start_date">Start Date</label>
+                <input type="datetime-local" id="start_date" name="start_date" value="{{datas[3]}}"required>
+
+                <label for="end_date">End Date</label>
+                <input type="datetime-local" id="end_date" name="end_date" value="{{datas[4]}}" required>
+
+                <label for="location">Event Location</label>
+                <input type="text" id="location" name="location" placeholder="Mention 'ONLINE' if the event is conducted through online " value="{{datas[5]}}" required>
+
+                <label for="capacity">Capacity</label>
+                <input type="number" id="capacity" name="capacity" value="{{datas[6]}}" required>
+
+                <label for="capacity"> Organizer </label>
+                <input type="text" id="organizer" name="organizer" value="{{datas[7]}}" required><br>
+
+                <label for="capacity"> Category </label><br>
+
+                <label for="choice1"> VIP category</label>
+                <input type="checkbox" id="choice1" name="category" value="VIP" value="{{datas[8]}}">
+                
+                
+                <label for="choice2"> GENERAL CATEGORY </label>
+                <input type="checkbox" id="choice2" name="category" value="General" value="{{datas[8]}}">
+                
+
+                <button type="submit">Update details</button>
+
+                <div class="link-container">
+                    <a href="{{url_for('admin_dashboard')}}" class="button-class">
+                        Go to Home
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+
+</body>
+</html>

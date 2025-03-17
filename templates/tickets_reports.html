@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;  /* Align headers to the left */
+        }
+        td {
+            text-align: left;  /* Default left alignment for text data */
+        }
+        /* Right align price and quantity columns */
+        .right-align {
+            text-align: right;
+        }
+        /* Center align email column */
+        .center-align {
+            text-align: center;
+        }
+        footer {
+    background-color: #404891; /* Black footer background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: fixed; /* Make the footer fixed */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width to cover the screen */
+    z-index: 1000;
+     /* Ensure it stays above other elements */
+}
+    </style>
+</head>
+<body>
+    <h1>Tickets</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Event ID</th>
+                <th class="center-align">Email</th>
+                <th class="right-align">Price</th>
+                <th class="right-align">Quantity</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket[0] }}</td>
+                <td>{{ ticket[1] }}</td>
+                <td class="center-align">{{ ticket[2] }}</td>
+                <td class="right-align">{{ ticket[3] }}</td>
+                <td class="right-align">{{ ticket[4] }}</td>
+                <td>{{ ticket[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+</body>
+</html>

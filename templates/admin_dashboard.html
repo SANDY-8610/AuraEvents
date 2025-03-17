@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event Listing</title>
+        <link rel="stylesheet" href="static/admin.css">
+    </head>
+    <body>
+        <header>
+            <h1>Admin - Event Listing</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('create_event') }}">Create Event</a></li>
+                    <li><a href="{{ url_for('view_registrants') }}">View Registrants</a></li>
+                    <li><a href="{{ url_for('generate_report') }}">Reports</a></li>
+                    <li><a href="{{ url_for('Home') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="hero-image">
+                <img src="static/images/event.webp" alt="Event Management Hero" />
+            </div>
+            <div class="container">
+                
+                <div class="table-section">
+                    <h2>Upcoming and Past Events</h2>
+                    <table class="event-card">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Event Name</th>
+                               
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Location</th>
+                                <th>Organizer</th>
+                                <th>Capacity</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in datas %}
+                            <tr>
+                                <td>{{ data[9] }}</td>
+                                <td>{{ data[1] }}</td>
+                                
+                                <td>{{ data[3] }}</td>
+                                <td>{{ data[4] }}</td>
+                                <td>{{ data[5] }}</td>
+                                <td>{{ data[7] }}</td>
+                                <td>{{ data[6] }}</td>
+                                <div class="link-container">
+                                <td><a href="{{ url_for('edit_event', id=data[0]) }}">Edit Event</a></td>
+                                <td><a href="{{ url_for('delete_event', id=data[0]) }}">Delete Event</a></td></div>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AuraEvents</p>
+        </footer>
+    </body>
+</html>

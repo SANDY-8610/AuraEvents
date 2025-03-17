@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Here you can view the registrants</h1>
+    </header>
+   
+
+
+    <main>
+        <div class="container">
+            <a href="{{url_for('admin_dashboard')}}" class="button-classes">
+                Go Back
+            </a>
+            <a href="{{ url_for('generate_report') }}" class="button-classes">Download Report as PDF</a>
+
+           
+            <div class="table-section">
+                <h2>Registered Users</h2>
+                <table class="event-card">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Phone</th>
+                            <th>Mail ID</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in res %}
+                        <tr>
+                            <td>{{ data[0] }}</td>
+                            <td>{{ data[1] }}</td>
+                            <td>{{ data[2] }}</td>
+                            <td>{{ data[3] }}</td>
+                            <td>{{ data[4] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            
+            <div class="table-section">
+                <h2>Users Registered for Events</h2>
+                <table class="event-card">
+                    <thead>
+                        <tr>
+                            <th>Registration ID</th>
+                            <th>Event ID</th>
+                            <th>Name</th>
+                            <th>Mail</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in datas %}
+                        <tr>
+                            <td>{{ data[0] }}</td>
+                            <td>{{ data[1] }}</td>
+                            <td>{{ data[2] }}</td>
+                            <td>{{ data[3] }}</td>
+                            <td>{{ data[4] }}</td>
+                            <td>{{ data[5] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            
+            <div class="table-section">
+                <h2>Users Who Got Tickets</h2>
+                <table class="event-card">
+                    <thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>Event ID</th>
+                            <th>Mail</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in ticket %}
+                        <tr>
+                            <td>{{ data[0] }}</td>
+                            <td>{{ data[1] }}</td>
+                            <td>{{ data[2] }}</td>
+                            <td>{{ data[3] }}</td>
+                            <td>{{ data[4] }}</td>
+                            <td>{{ data[5] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+</body>
+</html>

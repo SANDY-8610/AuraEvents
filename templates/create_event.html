@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="static/admin.css">
+</head>
+<body>
+
+    <header>
+        <h1>Admin - Create Event</h1>
+        
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Create New Event</h2>
+            <form action="" method="POST">
+                <label for="name">Event Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Event Description</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="start_date">Start Date</label>
+                <input type="datetime-local" id="start_date" name="start_date" required>
+
+                <label for="end_date">End Date</label>
+                <input type="datetime-local" id="end_date" name="end_date" required>
+
+                <label for="location">Event Location</label>
+                <input type="text" id="location" name="location" placeholder="Mention 'ONLINE' if the event is conducted through online " required>
+
+                <label for="capacity">Capacity</label>
+                <input type="number" id="capacity" name="capacity" required>
+
+                <label for="capacity"> Organizer </label>
+                <input type="text" id="organizer" name="organizer" required><br>
+
+                <label for="capacity"> Category </label><br>
+
+                <label for="choice1"> VIP category</label>
+                <input type="checkbox" id="choice1" name="category" value="VIP">
+                
+                
+                <label for="choice2"> GENERAL CATEGORY </label>
+                <input type="checkbox" id="choice2" name="category" value="General">
+                
+
+                <button type="submit">Create Event</button>
+                <a href="{{url_for('admin_dashboard')}}" class="button-class">
+                    Go Back
+                </a>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+
+</body>
+</html>

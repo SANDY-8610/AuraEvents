@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="static/user.css">
+</head>
+<body>
+
+    
+    <header>
+        <h1>User Login</h1>
+    </header>
+
+    
+    <main>
+        <div class="hero-image">
+            <img src="static/images/event.webp" alt="Event Management Hero" />
+        </div>
+        {% if message %}
+        <div class="alert {{ message_type }}">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <div class="login-container">
+            <div class="login-box">
+                <form action="{{ url_for('userlogin') }}" method="POST">
+                    <h2>Login</h2>
+
+                    
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    
+                    <button type="submit" class="submit-btn">Login</button>
+                    
+                    
+                    <div class="link-container">
+                        <a href="{{ url_for('Home') }}" class="button-class">Go to Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+
+</body>
+</html>

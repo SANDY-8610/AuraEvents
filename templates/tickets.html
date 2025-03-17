@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Ticket</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.button-class {
+    background-color: #333;
+    
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+form input {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.button-class {
+    background-color: #333;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+    </style>
+    <link rel="stylesheet" href="static/user.css">
+    <script>
+        function updatePrice() {
+            
+            var category = document.getElementById("category").value;
+            
+            
+            var priceInput = document.getElementById("price");
+            
+            
+            if (category == "VIP") {
+                priceInput.value = 1000;  
+            } else {
+                priceInput.value = 500;   
+            }
+            updateTotalAmount();
+        }
+
+        function updateTotalAmount() {
+            
+            var quantity = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+            
+            
+            var totalAmount = quantity * price;
+            
+            
+            document.getElementById("total_amount").value = totalAmount;
+        }
+    </script>
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Generate Ticket for Event</h1>
+    </header>
+
+    <main>
+        <div class="ticket-form">
+            
+            <form action="" method="POST">
+                
+               
+
+                <label for="attendee_email">Mail ID</label>
+                <input type="email" id="mail" name="mail" required><br>
+
+                <label for="category">Select Category:</label>
+                <select id="category" name="category" onchange="updatePrice()" required>
+                    <option >select</option> 
+                    <option value="General">General</option>
+                     <option value="VIP">VIP</option>
+                </select><br><br>
+
+       
+
+                <label for="quantity">Quantity (No. of Tickets):</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" onchange="updateTotalAmount()" required><br><br>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" readonly required><br><br>
+
+                
+                <label for="total_amount">Total Amount:</label>
+                <input type="number" id="total_amount" name="total_amount" readonly required><br><br>
+
+               
+
+                <button type="submit">Generate Ticket</button>
+
+                <a href="{{url_for('user_dashboard')}}" class="button-class">
+                    Go Back
+                </a>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AuraEvents</p>
+    </footer>
+
+</body>
+</html>
