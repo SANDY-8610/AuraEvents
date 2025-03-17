@@ -1,8 +1,5 @@
 # AuraEvents
 AuraEvents is a robust, user-friendly Event Management System designed to simplify and streamline event planning, registration, and management. The platform offers tailored functionalities for both administrators and users, ensuring smooth event organization and a seamless registration experience.
-# AuraEVents
-
-AuraEVents is a simple and efficient Event Management System designed to handle event planning, registration, and tracking with ease. It includes dedicated features for both admin and user roles.
 
 ## Features
 
