@@ -36,3 +36,8 @@ venv\Scripts\activate     # Windows
 4. Start MySQL (XAMPP), create DB, update config, then:
    flask run
 
+## LOGIN DETAILS 
+
+### Admin
+**user:** `admin`
+**pass:** `admin@123`
