@@ -1,0 +1,274 @@
+/* Admin Page Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background for subtle contrast */
+    color: #000; /* Black text */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Positions content and navigation on opposite sides */
+    align-items: center; /* Aligns content vertically */
+    background-color: #404891; /* Black background */
+    color: white; /* White text */
+    padding-top: 2000px;
+    padding: 20px;
+}
+
+header .header-content {
+    flex: 1; /* Takes up remaining space */
+    text-align: left; /* Aligns the header content to the left */
+}
+
+header nav {
+    flex: 1; /* Takes up remaining space */
+    text-align: right; /* Aligns the navigation to the right */
+}
+
+header nav ul {
+    display: flex; /* Positions list items in a row */
+    list-style: none; /* Removes default list styling */
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end; /* Ensures navigation items stay on the right */
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white; /* White text for links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    pointer-events: auto;
+}
+
+header nav ul li a:hover {
+    color: #ff5722; /* Orange highlight on hover */
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+main {
+    margin: 120px 20px 0; /* Top margin to avoid overlap with fixed header */
+}
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+  }
+  .hero-image {
+    z-index: -1; /* Ensure it stays behind other elements */
+}
+
+  
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0.3; 
+    filter: brightness(70%); 
+  }
+
+.table-wrapper {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 95%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #fff; /* White table background */
+    overflow-x: auto; /* Horizontal scroll for smaller screens */
+}
+
+.table-section {
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 8px;
+}
+
+.table-section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000; /* Black text for title */
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.event-card {
+    border-radius: 8px;
+    font-size: 16px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-card th, .event-card td {
+    padding: 10px 15px;
+    border: 1px solid #ddd; /* Light gray border for clarity */
+}
+
+.event-card th {
+    background-color: #404891; /* Black background */
+    color: #fff; /* White header text */
+    font-weight: bold;
+}
+
+.event-card th:nth-child(odd) {
+    background-color: #9abff4; /* Dark gray for alternating header columns */
+}
+
+.event-card tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+}
+
+.event-card tr:hover {
+    background-color: #e0e0e0; /* Subtle hover effect */
+}
+
+.event-card td a {
+    color: #000; /* Black text for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.event-card td a:hover {
+    color: #ff5722; /* Orange highlight on hover */
+}
+
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff; /* White form background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000; /* Black text */
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #000; /* Black text */
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Light gray input background */
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #000; /* Black border focus effect */
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #404891; /* Black button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #333; /* Darker hover effect for buttons */
+}
+
+.button-class {
+    background-color: #404891; /* Black background for buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.button-classes {
+    background-color: #b10d0d; /* Black background for buttons */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+
+.button-class:hover {
+    background-color: #333; /* Darker hover effect */
+}
+.link-container {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #404891;
+}
+footer {
+    background-color: #404891; /* Black footer background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: fixed; /* Make the footer fixed */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width to cover the screen */
+    z-index: 1000;
+     /* Ensure it stays above other elements */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container, .table-wrapper {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .event-card th, .event-card td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
