@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME PAGE</title>
+  <link rel="stylesheet" href="static/home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">AuraEvents</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="{{ url_for ('user_reg') }}">User Registration</a></li>
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <h1>EVENT MANAGEMENT</h1>
+   
+
+
+    <div class="hero-image">
+        <img src="static/images/event.webp" alt="Event Management Hero" />
+    </div>
+
+ 
+    <div class="features">
+        <div class="feature-item">
+            <h3>Streamlined Management</h3>
+            <p>Organize events, manage attendees, and track results with our comprehensive tools.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Easy Booking</h3>
+            <p>Effortlessly browse and book events tailored to your interests.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Real-Time Reports</h3>
+            <p>Access attendance and revenue reports instantly to optimize your events.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="clr-g">Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form action="#" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="contact-details">
+        <h3 class="clr-g">Contact Information</h3>
+        <p>
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+1234567890">+91 8610663372</a>
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@modernui.com">info@auraevents.com</a>
+        </p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i> Lake view Estate, Porur, Chennai - 600
+          116.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 AuraEvents.</p>
+  </footer>
+</body>
+
+</html>
